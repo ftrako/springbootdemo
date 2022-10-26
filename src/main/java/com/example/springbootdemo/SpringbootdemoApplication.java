@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableCaching
 @ServletComponentScan
 public class SpringbootdemoApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootdemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootdemoApplication.class, args);
+    }
 
 }

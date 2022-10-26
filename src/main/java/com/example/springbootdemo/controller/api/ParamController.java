@@ -24,7 +24,7 @@ public class ParamController {
 
     @GetMapping("/check")
     public String check(@NotEmpty(message = "不能为空") String name) {
-        logger.debug("name="+name);
+        logger.debug("name=" + name);
         return "ok";
     }
 }
