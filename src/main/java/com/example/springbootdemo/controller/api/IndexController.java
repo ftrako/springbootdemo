@@ -6,7 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * 主页
+ * @author ftrako
+ * @version 1.0 2022-10-26 15:27
+ **/
 @RestController
 @RequestMapping("/v1/log")
 public class IndexController {

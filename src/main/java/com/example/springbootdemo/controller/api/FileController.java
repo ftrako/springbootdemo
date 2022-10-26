@@ -18,11 +18,23 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.UUID;
 
+/**
+ * 文件相关示例
+ * @author ftrako
+ * @version 1.0 2022-10-26 15:27
+ **/
 @RestController
 @RequestMapping("/v1/file")
 public class FileController {
+
     private static final Logger logger = LogManager.getLogger(FileController.class);
 
+	/**
+	 * 上传文件
+	 * @param httpServletRequest - 默认上下文
+	 * @param file - key
+	 * @return ok
+	 */
 	@PostMapping("/upload")
 	public String upload(HttpServletRequest httpServletRequest, @RequestParam("file") MultipartFile file) {
 		String saveDir = "E:\\tmp";
