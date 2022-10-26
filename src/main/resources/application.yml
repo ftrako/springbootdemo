@@ -1,0 +1,9 @@
+server:
+  port: 8000
+
+#logging:
+logging:
+  level:
+    root: info
+    com.example: debug
+  config: classpath:log4j2.yml
