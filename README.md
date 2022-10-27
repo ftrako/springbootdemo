@@ -22,3 +22,4 @@ java -jar springbootdemo.jar
 * 文件上传
 * 支持请求参数校验
 * 支持JWT
+* 支持权限拦截，比如/logout接口
