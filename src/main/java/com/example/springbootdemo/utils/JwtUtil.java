@@ -23,8 +23,8 @@ public class JwtUtil {
     public static String getToken(Map<String, String> map) {
         Calendar instance = Calendar.getInstance();
         //默认7天过期
-//        instance.add(Calendar.DATE,7);
-        instance.add(Calendar.SECOND, 7);
+        instance.add(Calendar.DATE,1);
+//        instance.add(Calendar.SECOND, 7);
         //创建jwt builder
         JWTCreator.Builder builder = JWT.create();
 

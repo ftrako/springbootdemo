@@ -21,3 +21,4 @@ java -jar springbootdemo.jar
 * 集成log4j2日志输出
 * 文件上传
 * 支持请求参数校验
+* 支持JWT

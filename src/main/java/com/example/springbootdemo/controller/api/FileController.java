@@ -20,7 +20,6 @@ import java.util.UUID;
 
 /**
  * 文件相关示例
- *
  * @author ftrako
  * @version 1.0 2022-10-26 15:27
  **/

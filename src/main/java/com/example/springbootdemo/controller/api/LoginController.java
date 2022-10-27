@@ -1,16 +1,14 @@
 package com.example.springbootdemo.controller.api;
 
+import com.example.springbootdemo.annotation.PermissionsAnnotation;
 import com.example.springbootdemo.service.UserService;
-import com.example.springbootdemo.utils.JwtUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -45,9 +43,10 @@ public class LoginController {
      * @param token token
      * @return ok
      */
+    @PermissionsAnnotation()
     @GetMapping("/logout")
     public String logout(String name, String token) {
-        logger.debug("token=" + token);
+//        logger.debug("token=" + token);
         return userService.logout(name, token);
     }
 }

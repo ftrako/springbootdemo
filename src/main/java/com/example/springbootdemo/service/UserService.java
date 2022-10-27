@@ -54,17 +54,17 @@ public class UserService {
      * @return ok
      */
     public String logout(String name, String token) {
-        try {
-            DecodedJWT decode = JwtUtil.verify(token);
-            logger.debug("header=" + new String(Base64Utils.decodeFromString(decode.getHeader()), StandardCharsets.UTF_8));
-            logger.debug("payload=" + new String(Base64Utils.decodeFromString(decode.getPayload()), StandardCharsets.UTF_8));
-            logger.debug("sign=" + decode.getSignature());
-            logger.debug("token=" + decode.getToken());
-        } catch (TokenExpiredException expired) {
-            logger.error("name=" + name + " token expired");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "ok";
+//        try {
+//            DecodedJWT decode = JwtUtil.verify(token);
+//            logger.debug("header=" + new String(Base64Utils.decodeFromString(decode.getHeader()), StandardCharsets.UTF_8));
+//            logger.debug("payload=" + new String(Base64Utils.decodeFromString(decode.getPayload()), StandardCharsets.UTF_8));
+//            logger.debug("sign=" + decode.getSignature());
+//            logger.debug("token=" + decode.getToken());
+//        } catch (TokenExpiredException expired) {
+//            logger.error("name=" + name + " token expired");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        return "logout ok";
     }
 }
