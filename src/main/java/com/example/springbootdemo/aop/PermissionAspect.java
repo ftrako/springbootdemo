@@ -41,36 +41,36 @@ public class PermissionAspect {
     @Around("permissionCheck()")
     public String permissionCheckFirst(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
-        // 获取到请求的属性
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            // 获取到请求的属性
+            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 
-        //获取到请求对象
-        HttpServletRequest request = attributes.getRequest();
+            // 获取到请求对象
+            HttpServletRequest request = attributes.getRequest();
 
-        //URL：根据请求对象拿到访问的地址
-        logger.info("url=" + request.getRequestURL());
+            // URL：根据请求对象拿到访问的地址
+            logger.info("url={}, method={}, ip={}", request.getRequestURL(), request.getMethod(), request.getRemoteAddr());
 
-        //获取请求的方法，是Get还是Post请求
-        logger.info("method=" + request.getMethod());
+//            // 获取请求的方法，是Get还是Post请求
+//            logger.info("method=" + request.getMethod());
+//
+//            // ip：获取到访问
+//            logger.info("ip=" + request.getRemoteAddr());
 
-        //ip：获取到访问
-        logger.info("ip=" + request.getRemoteAddr());
+            // 头部带token
+            String token = request.getHeader("token");
 
-        // 头部带token
-        String token = request.getHeader("token");
-
-        //获取被拦截的类名和方法名
-        //获取请求参数，详见接口类
-        Object[] objects = joinPoint.getArgs();
-        logger.debug("len(s)=" + objects.length);
-        logger.debug("obj1=" + objects[0]);
-        logger.debug("obj2=" + objects[1]);
+            //获取被拦截的类名和方法名
+            //获取请求参数，详见接口类
+//            Object[] objects = joinPoint.getArgs();
+//            logger.debug("len(s)=" + objects.length);
+//            logger.debug("obj1=" + objects[0]);
+//            logger.debug("obj2=" + objects[1]);
 
             DecodedJWT decode = JwtUtil.verify(token);
-            logger.debug("header=" + new String(Base64Utils.decodeFromString(decode.getHeader()), StandardCharsets.UTF_8));
-            logger.debug("payload=" + new String(Base64Utils.decodeFromString(decode.getPayload()), StandardCharsets.UTF_8));
-            logger.debug("sign=" + decode.getSignature());
-            logger.debug("token=" + decode.getToken());
+//            logger.debug("header=" + new String(Base64Utils.decodeFromString(decode.getHeader()), StandardCharsets.UTF_8));
+            logger.debug("request payload=" + new String(Base64Utils.decodeFromString(decode.getPayload()), StandardCharsets.UTF_8));
+//            logger.debug("sign=" + decode.getSignature());
+//            logger.debug("token=" + decode.getToken());
         } catch (TokenExpiredException expired) {
             logger.error("fail permission, token expired");
             return "fail permission";
@@ -79,7 +79,7 @@ public class PermissionAspect {
             return "fail check permission";
         }
 
-        return (String)joinPoint.proceed();
+        return (String) joinPoint.proceed();
     }
 }
 
