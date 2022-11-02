@@ -37,7 +37,7 @@ public class LoginController {
     }
 
     /**
-     * 登录
+     * 登出
      *
      * @param name  账号
      * @param token token

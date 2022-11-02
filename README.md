@@ -24,3 +24,4 @@ java -jar springbootdemo.jar
 * 支持JWT
 * 支持通过AOP进行权限拦截，比如/logout接口
 * 支持通过AOP打印接口内部耗时
+* 支持Shiro进行权限控制
